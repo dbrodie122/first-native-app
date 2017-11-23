@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { NativeRouter, Route, Link, Switch } from 'react-router-native'
 import { AppButton } from './components/AppButton';
+import Today from './components/Today';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,15 +16,23 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.column}>
-          <AppButton title='Tap to Start' onPress={this.onButtonPress} style={styles.startButton}/>
+      <NativeRouter>
+        <View style={styles.container}>
+          <View style={styles.column}>
+            <AppButton title='Tap tooo Start' onPress={this.onButtonPress} style={styles.startButton}/>
+          </View>
+          <View style={styles.row}>
+            <Link to='/today'>
+              <Text>Link to Today page</Text>
+            </Link>
+              <AppButton title='Today' onPress={this.onButtonPress} style={styles.blockButton}/>
+            <AppButton title='History' onPress={this.onButtonPress} style={styles.blockButton}/>
+          </View>
+          <Switch>
+            <Route path="/today" component={Today}/>
+          </Switch>
         </View>
-        <View style={styles.row}>
-          <AppButton title='Today' onPress={this.onButtonPress} style={styles.blockButton}/>
-          <AppButton title='History' onPress={this.onButtonPress} style={styles.blockButton}/>
-        </View>
-      </View>
+      </NativeRouter>
     )
   }
 }
