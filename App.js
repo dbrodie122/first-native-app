@@ -3,6 +3,15 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NativeRouter, Route, Link, Switch } from 'react-router-native'
 import { AppButton } from './components/AppButton';
 import Today from './components/Today';
+import History from './components/History';
+
+const Home = (props) => {
+  return (
+    <View style={styles.top}>
+      <Text>Home</Text>
+    </View>
+  )
+}
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,19 +27,22 @@ export default class App extends React.Component {
     return (
       <NativeRouter>
         <View style={styles.container}>
-          <View style={styles.column}>
-            <AppButton title='Tap tooo Start' onPress={this.onButtonPress} style={styles.startButton}/>
-          </View>
+        <Switch>
+          <Route exact={true} path="/" component={Home}/>
+          <Route path="/today" component={Today}/>
+          <Route path="/history" component={History}/>
+        </Switch>
           <View style={styles.row}>
+          <Link to='/'>
+            <Text>Home</Text>
+          </Link> 
             <Link to='/today'>
-              <Text>Link to Today page</Text>
+              <Text>Today</Text>
+            </Link> 
+            <Link to='/history'>
+              <Text>History</Text>
             </Link>
-              <AppButton title='Today' onPress={this.onButtonPress} style={styles.blockButton}/>
-            <AppButton title='History' onPress={this.onButtonPress} style={styles.blockButton}/>
           </View>
-          <Switch>
-            <Route path="/today" component={Today}/>
-          </Switch>
         </View>
       </NativeRouter>
     )
@@ -70,5 +82,11 @@ const styles = StyleSheet.create({
     width: 150,
     backgroundColor: '#FFF',
     justifyContent: 'center'
+  },
+  top: {
+    flex:3,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 })

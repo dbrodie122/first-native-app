@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-class Today extends React.Component {
+class History extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -10,7 +10,7 @@ class Today extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>The Today page.</Text>
+        <Text>The History page.</Text>
       </View>
     );
   }
@@ -22,9 +22,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'orange',
+    backgroundColor: 'violet',
     width: '100%'
   }
 })
 
-export default Today;
+export default History;
