@@ -4,14 +4,9 @@ import { NativeRouter, Route, Link, Switch } from 'react-router-native'
 import { AppButton } from './components/AppButton';
 import Today from './components/Today';
 import History from './components/History';
+import Home from './components/Home';
 
-const Home = (props) => {
-  return (
-    <View style={styles.top}>
-      <Text>Home</Text>
-    </View>
-  )
-}
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -28,9 +23,8 @@ export default class App extends React.Component {
       <NativeRouter>
         <View style={styles.container}>
         <Switch>
-          <Route exact={true} path="/" component={Home}/>
+          <Route exact path="/" component={Home}/>
           <Route path="/today" component={Today}/>
-          <Route path="/history" component={History}/>
         </Switch>
           <View style={styles.row}>
           <Link to='/'>
@@ -39,9 +33,6 @@ export default class App extends React.Component {
             <Link to='/today'>
               <Text>Today</Text>
             </Link> 
-            <Link to='/history'>
-              <Text>History</Text>
-            </Link>
           </View>
         </View>
       </NativeRouter>
@@ -82,11 +73,5 @@ const styles = StyleSheet.create({
     width: 150,
     backgroundColor: '#FFF',
     justifyContent: 'center'
-  },
-  top: {
-    flex:3,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
   }
 })

@@ -18,7 +18,7 @@ class Today extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 3,
+    flex: 12,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',

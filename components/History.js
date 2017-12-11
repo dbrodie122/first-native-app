@@ -18,7 +18,7 @@ class History extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 3,
+    flex: 9,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
